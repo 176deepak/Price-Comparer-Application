@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prices</title>
+    <link rel="icon" href="{{url_for('static', filename='icon.ico')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='prices.css')}}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="azn-products">
+        <div class="title">Amazon</div>
+        <div class="products">
+          <div class="product-1">
+            <img
+              src="{{azn_p1_image}}"
+              alt="phone-img"/>
+            <h3 class="name">
+              {{azn_p1_name}}
+            </h3>
+            <h4 class="price">₹{{azn_p1_price}}</h4>
+            <a class="button" href="#">Get</a>
+          </div>
+
+          <div class="product-2">
+            <img
+              src="{{azn_p2_image}}"
+              alt="phone-img"
+            />
+            <h3 class="name">
+              {{azn_p2_name}}
+            </h3>
+            <h4 class="price">₹{{azn_p2_price}}</h4>
+            <a class="button" href="#">Get</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fpt-products">
+        <div class="title">Flipkart</div>
+
+        <div class="product-1">
+          <img
+            src="{{fpt_p1_image}}"
+            alt="phone-img"
+          />
+          <h3 class="name">
+            {{fpt_p1_name}}
+          </h3>
+          <h4 class="price">₹{{fpt_p1_price}}</h4>
+          <a class="button" href="#">Get</a>
+        </div>
+
+        <div class="product-2">
+          <img
+            src="{{fpt_p2_image}}"
+            alt="phone-img"
+          />
+          <h3 class="name">
+            {{fpt_p2_name}}
+          </h3>
+          <h4 class="price">₹{{fpt_p2_price}}</h4>
+          <a class="button" href="#">Get</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

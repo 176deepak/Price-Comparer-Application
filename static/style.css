@@ -1,0 +1,61 @@
+.container{
+    text-align:center;
+}
+
+.title{
+    color: #8c52ff;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
+    font-family: 'Bruno Ace SC', cursive;
+    font-size:xx-large;
+}
+
+.keyword{
+    border-color: #8c52ff;
+    border-radius: 10px;
+    margin: 5vw 5px 5vw 5px;
+    width: 35vw;
+    padding: 0.5em 0 0.5em 0;
+    padding-left: 7 px;
+    text-align: center;
+    background: #e9e9e9;
+}
+
+.submit{
+    font-weight: bold;
+    border-radius: 10px;
+    width: 7em;
+    padding: 0.5em 0 0.5em 0;
+    background: #8c52ff;
+    color:aliceblue;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    
+  }
+  
+  footer p {
+    margin: 0;
+    color: aliceblue;
+}
+
+  
+  footer p:before {
+    content: "\00a0 \00a0";
+  }
+  
+  @media screen and (max-height: 600px) {
+    footer {
+      position: static;
+    }
+  }
+  

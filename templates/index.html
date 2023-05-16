@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Price Comparer</title>
+    <link rel="icon" href="{{url_for('static', filename='icon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Kanit:wght@200&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>
+                See Minimum Price
+            </h1>
+        </div>
+        <div class="form">
+            <form method="POST">
+                <input class="keyword" placeholder="Enter what you want to compare...", name="keyword" id="keyword">
+                <br/>
+                <input class="submit" placeholder="compare" type="submit" name="submit">
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <footer>
+            <p style="color:aliceblue; font-size: small;">Made with <span style="color:#ff1a1a">&#x2764;</span> & &#9749;</p>
+        </footer>
+    </div>
+</body>
+</html>

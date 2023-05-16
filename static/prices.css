@@ -1,0 +1,65 @@
+.container{
+    text-align: center;
+    color: black;
+}
+
+.title{
+    margin-bottom: 5px;
+    border: 1px solid white;
+    background: #8c52ff;
+    padding: 5px 0 5px 0;
+    border-radius: 10px;
+    color: aliceblue;
+}
+
+.azn-products{
+    display: inline-block;
+    margin: 25px;
+}
+
+.fpt-products{
+    display: inline-block;
+}
+
+img{
+    width: 100px;
+    height: 200px;
+}
+
+.product-1{
+    float: left;
+    margin: 25px;
+    padding: 10px 10px 10px 10px;
+    width: min-content;
+    height: inherit;
+    border: 3.5px solid #8c52ff;
+    border-radius: 10px;
+}
+
+
+.product-2{
+    float: left;
+    width: min-content;
+    height: inherit;
+    padding: 10px 10px 10px 10px;
+    margin: 25px;
+    border: 3.5px solid #8c52ff;
+    border-radius: 10px;
+}
+
+.name{
+    text-align: justify;
+    font-size: small;
+    font-weight: 100;
+}
+
+.button{
+    text-decoration: none;
+    color: aliceblue;
+    background: #8c52ff;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin: 0 1.5em 0 1.5em;
+    padding: 0.2em 0 0.2em 0;
+}
