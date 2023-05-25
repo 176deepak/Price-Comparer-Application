@@ -1,19 +1,18 @@
 #required modules
 import re
 import pandas as pd
+import requests
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
 
 #re pattern for filtering product title
 pattern = r"\)[^\)]*$"
 
-#base urls of both sites
-fpt_base_url = "https://www.flipkart.com/search?q="
-azn_base_url = "https://www.amazon.in/s?k="
-
 #for server -  identify the client making the request, typically a web browser or a software application. 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}
 
+#base urls of both sites
+fpt_base_url = "https://www.flipkart.com/search?q="
+azn_base_url = "https://www.amazon.in/s?k="
 
 #function for scraping amazon's product details
 def azn_product_df(keyword):
@@ -24,13 +23,13 @@ def azn_product_df(keyword):
 
     try:
         #trying to open url 
-        azn_url = urlopen(azn_base_url+keyword)
+        azn_url = requests.get(azn_base_url+keyword)
     except:
         #returns false if url not opens
         return False
     else:
         #parsing query output html document
-        azn_reader = BeautifulSoup(azn_url, 'html.parser')
+        azn_reader = BeautifulSoup(azn_url.content, 'html.parser')
 
         #finding tags with relative content
         azn_product_name = azn_reader.findAll('span', {'class':'a-text-normal'})
@@ -59,7 +58,7 @@ def fpt_product_df(keyword):
 
     try:
         #trying to open url 
-        fpt_url = urlopen(fpt_base_url+keyword)
+        fpt_url = requests.get(fpt_base_url+keyword)
     except:
         #returns false if url not opens
         return False
