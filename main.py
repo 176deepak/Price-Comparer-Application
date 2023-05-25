@@ -11,7 +11,7 @@ pattern = r"\)[^\)]*$"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}
 
 #base urls of both sites
-fpt_base_url = "https://www.flipkart.com/search?q="
+fpt_base_url = "https://www.flipkart.com/search?q={}"
 azn_base_url = "https://www.amazon.in/s?k="
 
 #function for scraping amazon's product details
@@ -23,7 +23,8 @@ def azn_product_df(keyword):
 
     try:
         #trying to open url 
-        azn_url = requests.get(azn_base_url+keyword)
+        azn_url = requests.get(azn_base_url+keyword, headers=headers)
+        print(azn_url.status_code)
     except:
         #returns false if url not opens
         return False
@@ -58,13 +59,14 @@ def fpt_product_df(keyword):
 
     try:
         #trying to open url 
-        fpt_url = requests.get(fpt_base_url+keyword)
+        fpt_url = requests.get(fpt_base_url.format(keyword))
+        print(fpt_url.status_code)
     except:
         #returns false if url not opens
         return False
     else:
         #parsing query output html document
-        fpt_reader = BeautifulSoup(fpt_url, 'html.parser')
+        fpt_reader = BeautifulSoup(fpt_url.content, 'html.parser')
 
         #finding tags with relative content
         fpt_product_name = fpt_reader.findAll("div", {'class':'_4rR01T'})
@@ -73,7 +75,7 @@ def fpt_product_df(keyword):
 
         #itereting each tag for extracting content  using .get_text() and adding these contents into corresponding lists
         for name, price, link in zip(fpt_product_name, fpt_product_price, fpt_product_image):
-            if "Redmi 8" in name.get_text():
+            if keyword in name.get_text().lower():
                 products_list.append(re.sub(pattern, ")", name.get_text()))
                 prices_list.append(int(re.sub('[₹,]', '', price.get_text())))
                 images_list.append(link.attrs['src'])

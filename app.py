@@ -14,8 +14,10 @@ def welcome():
         keyword = request.form['keyword']
         azn_df = main.azn_product_df(keyword)
         fpt_df = main.fpt_product_df(keyword)
+        print(azn_df)
+        print(fpt_df)
 
-        if azn_df.empty != False and fpt_df.empty != False:
+        if azn_df.empty == False and fpt_df == False:
             azn_name1 = azn_df.iloc[0,0]
             azn_price1 = azn_df.iloc[0,1]
             azn_image1 = azn_df.iloc[0,2]
